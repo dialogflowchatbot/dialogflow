@@ -1,4 +1,4 @@
 {
-  "version":"1.8.0",
+  "version":"1.10.0",
   "changelog":["Http client now can change request headers","New introduction of dialog funtion nodes","New home page"]
 }
