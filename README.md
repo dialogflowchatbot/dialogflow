@@ -1,6 +1,11 @@
 # A single file dialog flow chat bot
 This is a software with only one executable file, including a visual process editor and a response system.
 
+## TL; DR
+* If you're looking for binary releases, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
+* The back end of this application is [here](https://github.com/dialogflowchatbot/dialogflow-backend)
+  The front end of this application is [here](https://github.com/dialogflowchatbot/dialogflow-frontend)
+
 ## Check out introduction page
 [https://dialogflowchatbot.github.io/](https://dialogflowchatbot.github.io/#/)
 
