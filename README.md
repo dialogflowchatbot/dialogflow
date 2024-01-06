@@ -1,4 +1,7 @@
 # A single file dialog flow chat bot
+
+![Demo](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/d8380bf728a87fb8e9df2a2d8796bd58c61015d9/screenshots/demo1.gif)
+
 This is a software with only one executable file, including a visual process editor and a response system.
 
 ## TL; DR
