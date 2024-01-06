@@ -1,4 +1,5 @@
-# A single file dialog flow chat bot
+# Dialog flow chat bot
+<img src="https://img.shields.io/badge/Latest_version-v1.9.0-blue" />
 
 ![Demo](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/d8380bf728a87fb8e9df2a2d8796bd58c61015d9/screenshots/demo1.gif)
 
@@ -11,6 +12,11 @@ This is a software with only one executable file, including a visual process edi
 
 ## Check out introduction page
 [https://dialogflowchatbot.github.io/](https://dialogflowchatbot.github.io/#/)
+
+## Quick introduction
+1. Fast (Built on Rust and Vue3)
+2. Easy (Use function nodes build dialog flow)
+3. Safe (Open source, All runtime data is saved locally)
 
 ## Get started
 1. Download on [Github release page](https://github.com/dialogflowchatbot/dialogflow/releases)
