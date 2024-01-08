@@ -13,10 +13,11 @@ This is a software with only one executable file, including a visual process edi
 ## Check out introduction page
 [https://dialogflowchatbot.github.io/](https://dialogflowchatbot.github.io/#/)
 
-## Quick introduction
-1. Fast (Built on Rust and Vue3)
-2. Easy (Use function nodes build dialog flow)
-3. Safe (Open source, All runtime data is saved locally)
+## ✨ Features
+* 🛒 Only ONE executable file of 10M (a data file will be automatically created when started for the first time)
+* 🚀 **Fast** Built on Rust and Vue3
+* 😀 **Easy** Use the mouse to drag process nodes to create a dialogue process
+* 💼 **Safe** (Open source, All runtime data is saved locally)
 
 ## Get started
 1. Download on [Github release page](https://github.com/dialogflowchatbot/dialogflow/releases)
