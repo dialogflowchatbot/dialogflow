@@ -6,9 +6,9 @@
 This is a software with **only one executable file**, including a visual process editor and a response system.
 
 ## TL; DR
-* If you're looking for binary releases, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
-* The back end of this application is [here](https://github.com/dialogflowchatbot/dialogflow-backend)
-* The front end of this application is [here](https://github.com/dialogflowchatbot/dialogflow-frontend)
+* 💾 If you're looking for binary releases, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
+* 🎈 The back end of this application is [here](https://github.com/dialogflowchatbot/dialogflow-backend)
+* 🎨 The front end of this application is [here](https://github.com/dialogflowchatbot/dialogflow-frontend)
 
 ## Check out introduction page
 [https://dialogflowchatbot.github.io/](https://dialogflowchatbot.github.io/#/)
@@ -17,7 +17,7 @@ This is a software with **only one executable file**, including a visual process
 * 🛒 Only ONE executable file of 10M (a data file will be automatically created when started for the first time)
 * 🚀 **Fast** Built on Rust and Vue3
 * 😀 **Easy** Use the mouse to drag process nodes to create a dialogue process
-* 💼 **Safe** (Open source, All runtime data is saved locally)
+* 🔐 **Safe** (Open source, All runtime data is saved locally)
 
 ## Get started
 1. Download on [Github release page](https://github.com/dialogflowchatbot/dialogflow/releases)
