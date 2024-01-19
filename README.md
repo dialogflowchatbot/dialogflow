@@ -1,9 +1,11 @@
 # Dialog flow chat bot
+This is a software with **only one executable file**, including a visual process editor and a response system.  
 <img src="https://img.shields.io/badge/Latest_version-v1.9.2-blue" />
 
 ![Demo](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/d8380bf728a87fb8e9df2a2d8796bd58c61015d9/screenshots/demo1.gif)
 
-This is a software with **only one executable file**, including a visual process editor and a response system.
+Setup a condition branch
+![Setup a condition branch](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/18f8b2821921f1732e7699f515615a3d7838f16a/screenshots/condition1.gif)
 
 ## TL; DR
 * 💾 If you're looking for **binary releases**, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
