@@ -1,6 +1,6 @@
 # Dialog flow chat bot
 This is a software with **only one executable file**, including a visual process editor and a response system.  
-<img src="https://img.shields.io/badge/Latest_version-v1.12.0-blue" />
+<img src="https://img.shields.io/badge/Latest_version-v1.13.0-blue" />
 
 ![Demo](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/ae15f7fabebe154ebc8dec8511cb1ec063163358/src/assets/demo1.gif)
 
