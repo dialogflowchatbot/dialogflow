@@ -4,7 +4,7 @@ This is a software with **only one executable file**, including a visual process
 
 # ✨ Features
 * 🛒 **Friendly** Only ONE executable file of 15M (data files will be created at runtime automatically).
-* 🐱‍🏍 **AI powered** Integrated `Huggingface local model`, `Ollama` and `OpenAI`, this can be used for `Chat`(Coming soon `1.15`), `Text generation` and `Intent detection`.
+* 🐱‍🏍 **AI powered** Integrated `Huggingface local model`, `Ollama` and `OpenAI`, this can be used for `Chat`(Coming soon `1.16`), `Text generation` and `Intent detection`.
 * 🚀 **Fast** Built on Rust and Vue3.
 * 😀 **Simple** Use the mouse to drag and drop with our intuitive node-based editor.
 * 🔐 **Safe** 100% open source, all runtime data is saved locally (Using `OpenAI API` may expose some data).
