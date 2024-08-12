@@ -1,9 +1,9 @@
 # Dialog flow chat bot
 This is a software with **only one executable file**, including a visual process editor and a response system.  
-<img src="https://img.shields.io/badge/Latest_version-v1.14.0-blue" />
+<img src="https://img.shields.io/badge/Latest_version-v1.15.0-blue" />
 
 # ✨ Features
-* 🛒 **Friendly** Only ONE executable file of 15M (data files will be created at runtime automatically).
+* 🛒 **Light** Only ONE executable file, it can run smoothly on laptops without GPUs (data files will be created at runtime automatically).
 * 🐱‍🏍 **AI powered** Integrated `Huggingface local model`, `Ollama` and `OpenAI`, this can be used for `Chat`(Coming soon `1.16`), `Text generation` and `Intent detection`.
 * 🚀 **Fast** Built on Rust and Vue3.
 * 😀 **Simple** Use the mouse to drag and drop with our intuitive node-based editor.
