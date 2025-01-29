@@ -1,6 +1,6 @@
 # Dialog flow chat bot
 This is a software with **only one executable file**, including a visual process editor and a response system.  
-<img src="https://img.shields.io/badge/Latest_version-v1.16.0-blue" />
+<img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
 
 # ✨ Features
 * 🛒 **Light** Only ONE executable file, it can run smoothly on laptops without GPUs (data files will be created at runtime automatically).
