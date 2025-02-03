@@ -1,0 +1,1 @@
+cls&&cargo r

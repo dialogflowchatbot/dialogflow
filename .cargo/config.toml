@@ -1,0 +1,20 @@
+[build]
+# rustflags = ["-C", "target-cpu=native"]
+# rustdocflags = ["-C", "target-cpu=native"]
+
+[target.wasm32-unknown-unknown]
+# rustflags = ["-C", "target-feature=+simd128"]
+
+[http]
+# proxy="ip:port"
+
+[target.wasm32-wasi]
+# rustflags = ["-C", "target-feature=+simd128"]
+
+[target.x86_64-unknown-linux-musl]
+# linker = "rust-lld"
+linker = "./musl-zcxx"
+# linker = "x86_64-linux-musl-gcc"
+# rustflags = ["-Clinker=rust-lld"]
+# rustflags = ["-C", "linker-flavor=ld.lld"]
+rustflags = ["-C", "linker-flavor=gcc", "-C", "link-self-contained=no"]

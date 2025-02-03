@@ -1,6 +1,0 @@
-[submodule "dialogflow-backend"]
-	path = dialogflow-backend
-	url = https://github.com/dialogflowchatbot/dialogflow-backend
-[submodule "dialogflow-frontend"]
-	path = dialogflow-frontend
-	url = https://github.com/dialogflowchatbot/dialogflow-frontend

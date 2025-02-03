@@ -1,0 +1,4 @@
+#!/bin/sh
+p=`echo $@ | sed 's/--target=x86_64-unknown-linux-musl/-target x86_64-linux-musl/g' | sed 's/--target=x86_64-unknown-linux-gnu/-target x86_64-linux-musl/g'`
+echo $p
+zig cc -target x86_64-linux-musl $p

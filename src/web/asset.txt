@@ -1,0 +1,14 @@
+[
+(include_bytes!(r#"..\resources\assets/assets\inbound-bot-PJJg_rST.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\index-DC6GrqPz.js.gz"#), "text/javascript"),
+(include_bytes!(r#"..\resources\assets/assets\index-DIXWMYNZ.css.gz"#), "text/css"),
+(include_bytes!(r#"..\resources\assets/assets\outbound-bot-EmsLuWRN.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\text-bot-CWb_Poym.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\usedByDialogNodeTextGeneration-DrFqkTqi.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\usedByDialogNodeTextGeneration-thumbnail-C1iQCVQO.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\usedByLlmChatNode-Bv2Fg5P7.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\usedBySentenceEmbedding-Dmju1hVB.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/assets\usedBySentenceEmbedding-thumbnail-DVXz_sh0.png.gz"#), ""),
+(include_bytes!(r#"..\resources\assets/favicon.ico.gz"#), "image/x-icon"),
+(include_bytes!(r#"..\resources\assets/index.html.gz"#), "text/html; charset=utf-8"),
+]

@@ -1,0 +1,2 @@
+Rich text editor
+https://github.com/iliyaZelenko/tiptap-vuetify
