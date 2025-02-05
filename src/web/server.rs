@@ -90,19 +90,34 @@ pub async fn start_app() {
     };
 
     let mut listening_ip = String::with_capacity(32);
+    let mut port: u16 = 0;
     let mut set_listening_ip = false;
+    let mut set_listening_port = false;
     for argument in std::env::args() {
         if set_listening_ip {
             listening_ip.push_str(&argument);
-            break;
+            set_listening_ip = false;
+            continue;
         }
         if argument.eq("-ip") {
             set_listening_ip = true;
             continue;
         }
+        if set_listening_port {
+            port = argument.parse::<u16>().unwrap();
+            set_listening_port = false;
+            continue;
+        }
+        if argument.eq("-port") {
+            set_listening_port = true;
+            continue;
+        }
     }
     if listening_ip.is_empty() {
         listening_ip.push_str(&settings.ip);
+    }
+    if port == 0 {
+        port = settings.port;
     }
 
     let (sender, recv) = tokio::sync::oneshot::channel::<()>();
@@ -112,7 +127,7 @@ pub async fn start_app() {
     let app = r.fallback(fallback);
     // let socket_addr: SocketAddr = addr.parse().expect(&invalid_ip_msg(&addr));
     let mut bind_res;
-    let mut port = settings.port;
+    // let mut port = settings.port;
     loop {
         let addr = format!("{}:{}", &listening_ip, port);
         bind_res = tokio::net::TcpListener::bind(&addr).await;

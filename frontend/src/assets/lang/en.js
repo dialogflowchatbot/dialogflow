@@ -121,7 +121,8 @@ export default {
         },
         settings: {
             title: 'Settings',
-            ipNote: 'If the configured IP address is wrong and the application fails to start, please reset the configuration parameters by adding the startup parameter: -rs.',
+            ipNote: 'At startup, you can override the configured parameters with -ip and -port.',
+            ipNote2: 'If the configured IP address is invalid and the application fails to start, use -rs parameter to reset the configuration.',
             prompt2: 'Listening port',
             prompt2_2: 'When the set port is occupied, automatically randomly select other available ports',
             prompt3: 'Max session idle',

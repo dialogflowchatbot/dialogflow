@@ -122,7 +122,8 @@ export default {
         },
         settings: {
             title: '配置管理',
-            ipNote: '如果配置的IP地址错误导致应用启动失败, 请在启动是, 加上 -rs 来重置配置参数',
+            ipNote: '启动时，可以使用 -ip 和 -port 覆盖配置的参数',
+            ipNote2: '如果配置的IP地址错误导致应用启动失败, 请在启动时, 加上 -rs 来重置配置参数',
             prompt2: '应用端口',
             prompt2_2: '当指定端口被占用, 随机选择一个可用的端口',
             prompt3: '会话时长',

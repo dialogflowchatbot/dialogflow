@@ -21,7 +21,7 @@ const settings = reactive({
         accessToken: '',
     }
 });
-const formLabelWidth = '130px'
+const formLabelWidth = '160px'
 
 onMounted(async () => {
     const t = await httpReq("GET", 'management/global-settings', null, null, null)
@@ -61,6 +61,9 @@ async function save() {
                 </el-form-item>
                 <el-form-item label="" :label-width="formLabelWidth">
                     {{ $t('lang.settings.ipNote') }}
+                </el-form-item>
+                <el-form-item label="" :label-width="formLabelWidth">
+                    {{ $t('lang.settings.ipNote2') }}
                 </el-form-item>
                 <el-form-item :label="$t('lang.settings.prompt2')" :label-width="formLabelWidth">
                     <el-input-number v-model="settings.port" :min="1024" :max="65530" @change="handleChange" />
