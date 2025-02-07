@@ -1,12 +1,18 @@
 package io.github.dialogflowchatbot.sdk;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-@AllArgsConstructor
-public class ImportVariable {
-    private String varName;
+public class ImportVariable extends VarData {
     private VarKind varKind;
-    private String varValue;
+
+    public static ImportVariable create(String varName, String varValue, VarKind varKind) {
+        ImportVariable v = new ImportVariable();
+        v.setVarName(varName);
+        v.setVarValue(varValue);
+        v.setVarKind(varKind);
+        return v;
+    }
 }
