@@ -1,28 +1,42 @@
-class MySDK {
-    constructor(apiKey) {
-        this.apiKey = apiKey;
+"use strict";
+class DialogFlowChatBotSDK {
+    constructor(url) {
+        this.url = url;
     }
- 
-    async fetchData(url) {
-        const response = await fetch(`https://api.example.com/${url}`, {
-            headers: {
-                'Authorization': `Bearer ${this.apiKey}`
-            }
-        });
-        return await response.json();
+
+    const VarKind = Object.freeze({
+        STRING: 'String',
+        NUMBER: 'Number',
+    });
+
+    const UserInputResult = Object.freeze({
+    SUCCESSFUL:'Successful',
+    TIMEOUT:'Timeout',
+    });
+
+    genRequestData(robotId, mainFlowId) {
+    return {
+             robotId: robotId,
+             mainFlowId: mainFlowId,
+             sessionId: "",
+             userInputResult: this.UserInputResult.SUCCESSFUL,
+             userInput: "",
+             importVariables: [],
+             userInputIntent: ""
+           };
     }
- 
-    async postData(url, data) {
-        const response = await fetch(`https://api.example.com/${url}`, {
+
+    async postData(data) {
+        const response = await fetch(this.url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${this.apiKey}`
+//                'Authorization': `Bearer ${this.apiKey}`
             },
             body: JSON.stringify(data)
         });
         return await response.json();
     }
 }
- 
-module.exports = MySDK;
+
+module.exports = DialogFlowChatBotSDK;
