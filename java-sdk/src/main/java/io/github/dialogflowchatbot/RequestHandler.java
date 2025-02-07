@@ -18,6 +18,10 @@ import java.time.Duration;
 
 @Slf4j
 public class RequestHandler {
+    public RequestHandler() {
+        System.setProperty("jdk.httpclient.keepalive.timeout", "1800");
+    }
+
     public Response req(String reqUrl, String robotId, String mainFlowId, String userInput) throws IOException, InterruptedException {
         return req(reqUrl, userInput, robotId, mainFlowId, 5000);
     }
@@ -45,7 +49,7 @@ public class RequestHandler {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         String jsonData = mapper.writeValueAsString(requestData);
-        log.info("Raw requestData {}", jsonData);
+        log.debug("Raw requestData {}", jsonData);
 
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_1_1)
@@ -60,7 +64,7 @@ public class RequestHandler {
         // Send request and handle response
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
         String responseString = response.body();
-        log.info("Raw responseString {}", responseString);
+        log.debug("Raw responseString {}", responseString);
         return mapper.readValue(responseString, Response.class);
     }
 }
