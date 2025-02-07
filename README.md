@@ -12,8 +12,10 @@ This is a software with **only one executable file**, including a visual process
 * 🔐 **Safe** 100% open source, all runtime data is saved locally (Using `OpenAI API` may expose some data).
 
 # Give it a try!
-* 🐋 We provided an image on Docker Hub at [dialogflowchatbot/demo](https://hub.docker.com/repository/docker/dialogflowchatbot/demo)
-* 💻 If you're looking for **binary releases**, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
+* 🐋 **Docker** We provided an image on Docker Hub at [dialogflowchatbot/demo](https://hub.docker.com/repository/docker/dialogflowchatbot/demo)
+* 💻 **Binary releases**, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
+
+> By default application will listen to `127.0.0.1:12715`, you can use `-ip` and `-port` specify new value, e.g.: `dialogflow -ip 0.0.0.0 -port 8888`
 
 <!-- # Releases and source code
 * 💾 If you're looking for **binary releases**, please check [here](https://github.com/dialogflowchatbot/dialogflow/releases)
