@@ -20,11 +20,14 @@ import java.time.Duration;
 public class RequestHandler {
     private final HttpClient client;
     private final URI endpoint;
+    private final ObjectMapper mapper;
     public RequestHandler(String endpoint) {
         this.client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_1_1)
                 .build();
         this.endpoint = URI.create(endpoint);
+        mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         System.setProperty("jdk.httpclient.keepalive.timeout", "1800");
     }
 
@@ -52,8 +55,6 @@ public class RequestHandler {
     }
 
     private Response post(RequestData requestData, int timeoutMillis) throws IOException, InterruptedException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         String jsonData = mapper.writeValueAsString(requestData);
         log.debug("Raw requestData {}", jsonData);
 
