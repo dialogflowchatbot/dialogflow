@@ -18,9 +18,13 @@ import java.time.Duration;
 
 @Slf4j
 public class RequestHandler {
-    private final String endpoint;
+    private final HttpClient client;
+    private final URI endpoint;
     public RequestHandler(String endpoint) {
-        this.endpoint = endpoint;
+        this.client = HttpClient.newBuilder()
+                .version(HttpClient.Version.HTTP_1_1)
+                .build();
+        this.endpoint = URI.create(endpoint);
         System.setProperty("jdk.httpclient.keepalive.timeout", "1800");
     }
 
@@ -53,13 +57,10 @@ public class RequestHandler {
         String jsonData = mapper.writeValueAsString(requestData);
         log.debug("Raw requestData {}", jsonData);
 
-        HttpClient client = HttpClient.newBuilder()
-                .version(HttpClient.Version.HTTP_1_1)
-                .build();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(endpoint))
+                .uri(endpoint)
                 .timeout(Duration.ofMillis(timeoutMillis))
-                .POST(HttpRequest.BodyPublishers.ofString(jsonData))
+                .POST(HttpRequest.BodyPublishers.ofString(jsonData, StandardCharsets.UTF_8))
                 .header("Content-Type", "application/json")
                 .build();
 
