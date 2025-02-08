@@ -1,31 +1,38 @@
 import requests
 from enum import Enum
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from typing import List, Optional
 from pydantic import BaseModel
+
 
 class Status(Enum):
     SUCCESS = "success"
     FAILURE = "failure"
 
+
 class VarKind(Enum):
     STRING = "String"
     NUMBER = "Number"
 
+
 class UserInputResult(Enum):
-    SUCCESSFUL = "SUCCESSFUL"
-    TIMEOUT = "TIMEOUT"
+    SUCCESSFUL = "Successful"
+    TIMEOUT = "Timeout"
+
 
 class NextAction(Enum):
     TERMINATE = "Terminate"
     NONE = "None"
 
+
 class VarDataBase(BaseModel):
     varName: str
     varValue: str
 
+
 class ImportVariable(VarDataBase):
     varKind: VarKind
+
 
 @dataclass
 class RequestData:
@@ -58,12 +65,21 @@ class RequestData:
     def set_user_input_intent(self, userInputIntent: str):
         self.userInputIntent = userInputIntent
 
+    def to_dict(self):
+        data = asdict(self)
+        if data['userInputResult'] is not None:
+            data['userInputResult'] = data['userInputResult'].value
+        return data
+
+
 class Answer(BaseModel):
-    content: str
-    contentType: str
+    text: str
+    answerType: str
+
 
 class ExtraData(BaseModel):
     externalLink: str
+
 
 class ResponseData(BaseModel):
     sessionId: str
@@ -72,15 +88,19 @@ class ResponseData(BaseModel):
     nextAction: NextAction
     extraData: ExtraData
 
+
 class CollectData(VarDataBase):
     pass
 
+
 ResponseData.update_forward_refs()
+
 
 class Response(BaseModel):
     status: int
     data: ResponseData
     err: Optional[str] = None
+
 
 class SimpleSDK:
     def __init__(self, endpoint: str):
@@ -102,12 +122,13 @@ class SimpleSDK:
             data.importVariables = []
 
         try:
-            response = requests.post(self.endpoint, json=data.__dict__)
-            if response.status_code == 200:
-                return Response(**response.json())
+            print(data.to_dict())
+            res = requests.post(self.endpoint, json=data.to_dict())
+            if res.status_code == 200:
+                return Response(**res.json())
             else:
                 return Response(
-                    status=response.status_code,
+                    status=res.status_code,
                     data=ResponseData(
                         sessionId="",
                         answers=[],
@@ -115,7 +136,7 @@ class SimpleSDK:
                         nextAction=NextAction.NONE,
                         extraData=ExtraData(externalLink="")
                     ),
-                    err=response.text
+                    err=res.text
                 )
         except requests.exceptions.RequestException as e:
             return Response(
@@ -130,45 +151,47 @@ class SimpleSDK:
                 err=str(e)
             )
 
+
 # 示例用法
 if __name__ == "__main__":
     try:
-        sdk = SimpleSDK("https://example.com/api/endpoint1")
+        sdk = SimpleSDK("http://10.247.144.182:12715/flow/answer")
         request_data = RequestData(
-            robotId="12345",
-            mainFlowId="flow1",
-            userInputResult=UserInputResult.SUCCESSFUL,
-            userInputIntent="greeting"
+            robotId="r03dbzxp6zpk9uhkgcbw1ec604",
+            mainFlowId="103dbzxp74kjwb148ubfmhgemb"
         )
 
         while True:
             try:
                 response = sdk.send_post_request(request_data)
-                
+
                 if response is None:
                     print("Response is None")
                     break
-                
+
                 if response.status != 200:
                     print(f"Response failed with status code: {response.status}")
                     if response.err:
                         print(f"Error: {response.err}")
                     break
-                
+
                 if response.data is None:
                     print("Response data is None")
                     break
-                
+
                 for answer in response.data.answers:
-                    print(f"Answer: {answer.content} (Type: {answer.contentType})")
-                
+                    print(f"Answer: {answer.text} (Type: {answer.answerType})")
+
                 if response.data.nextAction == NextAction.TERMINATE:
                     print("Terminating the conversation.")
                     break
-                
+
+                if request_data.sessionId is None or len(request_data.sessionId) == 0:
+                    request_data.sessionId = response.data.sessionId
+
                 user_input = input("Input your question: ")
                 request_data.set_user_input(user_input)
-            
+
             except Exception as e:
                 print(f"An error occurred: {e}")
 
