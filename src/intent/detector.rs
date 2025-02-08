@@ -1,4 +1,5 @@
 use regex::Regex;
+use unicase::UniCase;
 
 use super::dto::IntentDetail;
 use super::phrase;
@@ -25,9 +26,10 @@ pub(crate) async fn detect(robot_id: &str, s: &str) -> Result<Option<String>> {
     };
     let mut empty_phrase = true;
     for detail in intents.iter() {
+        let unicase_s = UniCase::new(s);
         for k in detail.keywords.iter() {
             // log::info!("intent compare {} {}", k, s);
-            if k.eq(s) {
+            if UniCase::new(k) == unicase_s {
                 // println!("{} {} {}", s, k, &i.name);
                 return Ok(Some(detail.intent_name.clone()));
             }

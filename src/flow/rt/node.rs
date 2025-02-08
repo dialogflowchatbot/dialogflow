@@ -7,7 +7,7 @@ use rkyv::{util::AlignedVec, Archive, Deserialize, Serialize};
 
 use super::condition::ConditionData;
 use super::context::Context;
-use super::dto::{AnswerData, AnswerContentType, CollectData, Request, Response};
+use super::dto::{AnswerContentType, AnswerData, CollectData, Request, Response};
 use crate::ai::chat::ResultReceiver;
 use crate::external::http::client as http;
 use crate::flow::rt::collector;
