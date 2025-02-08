@@ -14,11 +14,11 @@ public class Main {
             System.out.println("Main flow id:");
             String mainFlowId = scanner.nextLine();
             RequestData request = RequestData.create(robotId, mainFlowId, null);
-            RequestHandler requestHandler = new RequestHandler();
+            RequestHandler requestHandler = new RequestHandler("http://10.247.144.182:12715/flow/answer");
             Response response;
             while (true) {
                 try {
-                    response = requestHandler.req("http://10.247.144.182:12715/flow/answer", request, 1000);
+                    response = requestHandler.req(request, 1000);
                 } catch (IOException | InterruptedException e) {
                     System.out.println("Request failed, err: " + e.getMessage());
                     response = null;
