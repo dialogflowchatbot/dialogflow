@@ -7,7 +7,7 @@ use rkyv::{util::AlignedVec, Archive, Deserialize, Serialize};
 
 use super::condition::ConditionData;
 use super::context::Context;
-use super::dto::{AnswerData, AnswerType, CollectData, Request, Response};
+use super::dto::{AnswerData, AnswerContentType, CollectData, Request, Response};
 use crate::ai::chat::ResultReceiver;
 use crate::external::http::client as http;
 use crate::flow::rt::collector;
@@ -92,7 +92,7 @@ fn add_next_node(ctx: &mut Context, next_node_id: &str) {
 #[rkyv(compare(PartialEq))]
 pub(crate) struct TextNode {
     pub(super) text: String,
-    pub(crate) text_type: AnswerType,
+    pub(crate) text_type: AnswerContentType,
     pub(super) ret: bool,
     pub(super) next_node_id: String,
 }
@@ -103,8 +103,8 @@ impl RuntimeNode for TextNode {
         // let now = std::time::Instant::now();
         match replace_vars(&self.text, &req, ctx) {
             Ok(answer) => response.answers.push(AnswerData {
-                text: answer,
-                answer_type: self.text_type.clone(),
+                content: answer,
+                content_type: self.text_type.clone(),
             }),
             Err(e) => log::error!("{:?}", e),
         };
@@ -490,8 +490,8 @@ impl RuntimeNode for LlmChatNode {
             log::info!("LLM response |{}|", &s);
             if !s.is_empty() {
                 response.answers.push(AnswerData {
-                    text: s,
-                    answer_type: AnswerType::TextPlain,
+                    content: s,
+                    content_type: AnswerContentType::TextPlain,
                 });
             }
             log::info!("Llm response took {:?}", now.elapsed());
@@ -601,8 +601,8 @@ impl KnowledgeBaseAnswerNode {
             }
             KnowledgeBaseAnswerNoRecallThen::ReturnAlternateAnswerInstead(s) => {
                 response.answers.push(AnswerData {
-                    text: s.clone(),
-                    answer_type: AnswerType::TextPlain,
+                    content: s.clone(),
+                    content_type: AnswerContentType::TextPlain,
                 });
                 let r = RuntimeNnodeEnum::KnowledgeBaseAnswerNode(self.clone());
                 let bytes = rkyv::to_bytes::<rkyv::rancor::Error>(&r).unwrap();
@@ -623,8 +623,8 @@ impl RuntimeNode for KnowledgeBaseAnswerNode {
             };
             if r.is_some() && !r.as_ref().unwrap().is_empty() {
                 response.answers.push(AnswerData {
-                    text: r.unwrap(),
-                    answer_type: AnswerType::TextPlain,
+                    content: r.unwrap(),
+                    content_type: AnswerContentType::TextPlain,
                 });
                 add_next_node(ctx, &self.next_node_id);
                 return false;

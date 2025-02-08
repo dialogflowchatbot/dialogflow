@@ -37,16 +37,16 @@ pub(crate) struct CollectData {
 
 #[derive(Clone, Deserialize, Serialize, rkyv::Archive, rkyv::Deserialize, rkyv::Serialize)]
 #[rkyv(compare(PartialEq))]
-pub(crate) enum AnswerType {
+pub(crate) enum AnswerContentType {
     TextPlain,
     TextHtml,
 }
 
 #[derive(Serialize)]
 pub(crate) struct AnswerData {
-    pub(crate) text: String,
-    #[serde(rename = "answerType")]
-    pub(crate) answer_type: AnswerType,
+    pub(crate) content: String,
+    #[serde(rename = "contentType")]
+    pub(crate) content_type: AnswerContentType,
 }
 
 #[derive(Serialize)]

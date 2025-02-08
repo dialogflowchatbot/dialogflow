@@ -337,7 +337,7 @@ fn convert_node(main_flow_id: &str, node: &mut Node) -> Result<()> {
                 let end_node_id = format!("{}-2", &n.node_id);
                 let node = TextNode {
                     text: n.ending_text.clone(),
-                    text_type: super::dto::AnswerType::TextPlain,
+                    text_type: super::dto::AnswerContentType::TextPlain,
                     ret: false,
                     next_node_id: end_node_id.clone(),
                 };

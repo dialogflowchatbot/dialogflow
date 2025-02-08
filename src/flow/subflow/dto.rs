@@ -354,7 +354,7 @@ pub(crate) struct DialogNode {
     #[serde(rename = "dialogText")]
     pub(crate) dialog_text: String,
     #[serde(rename = "dialogTextType")]
-    pub(crate) dialog_text_type: crate::flow::rt::dto::AnswerType,
+    pub(crate) dialog_text_type: crate::flow::rt::dto::AnswerContentType,
     #[serde(rename = "nextStep")]
     pub(crate) next_step: NextActionType,
     pub(crate) branches: Vec<Branch>,

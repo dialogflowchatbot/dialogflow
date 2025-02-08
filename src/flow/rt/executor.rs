@@ -50,7 +50,7 @@ pub(in crate::flow::rt) async fn process(req: &mut Request) -> Result<Response> 
             for a in res.answers.iter() {
                 ctx.chat_history.push(Prompt {
                     role: String::from("assistant"),
-                    content: a.text.clone(),
+                    content: a.content.clone(),
                 });
             }
         }

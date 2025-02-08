@@ -73,8 +73,8 @@ class RequestData:
 
 
 class Answer(BaseModel):
-    text: str
-    answerType: str
+    content: str
+    contentType: str
 
 
 class ExtraData(BaseModel):
@@ -180,7 +180,7 @@ if __name__ == "__main__":
                     break
 
                 for answer in response.data.answers:
-                    print(f"Answer: {answer.text} (Type: {answer.answerType})")
+                    print(f"Answer: {answer.content} (Type: {answer.contentType})")
 
                 if response.data.nextAction == NextAction.TERMINATE:
                     print("Terminating the conversation.")

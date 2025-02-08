@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
     public class Answer {
-    private String text;
+    private String content;
     private String contentType;
 }

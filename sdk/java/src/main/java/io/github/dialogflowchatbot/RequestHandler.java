@@ -26,8 +26,8 @@ public class RequestHandler {
                 .version(HttpClient.Version.HTTP_1_1)
                 .build();
         this.endpoint = URI.create(endpoint);
-        mapper = new ObjectMapper();
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        this.mapper = new ObjectMapper();
+        this.mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         System.setProperty("jdk.httpclient.keepalive.timeout", "1800");
     }
 

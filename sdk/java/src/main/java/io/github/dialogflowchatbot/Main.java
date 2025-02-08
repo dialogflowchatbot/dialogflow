@@ -37,7 +37,7 @@ public class Main {
                     else {
                         System.out.println(answers.size() == 1 ? "Answer:" : "Answers:");
                         for (Answer answer : answers) {
-                            System.out.println(answer.getText());
+                            System.out.println(answer.getContent());
                         }
                     }
                     if (NextAction.TERMINATE.equals(data.getNextAction())) {
