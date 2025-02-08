@@ -18,21 +18,23 @@ import java.time.Duration;
 
 @Slf4j
 public class RequestHandler {
-    public RequestHandler() {
+    private final String endpoint;
+    public RequestHandler(String endpoint) {
+        this.endpoint = endpoint;
         System.setProperty("jdk.httpclient.keepalive.timeout", "1800");
     }
 
-    public Response req(String reqUrl, String robotId, String mainFlowId, String userInput) throws IOException, InterruptedException {
-        return req(reqUrl, userInput, robotId, mainFlowId, 5000);
+    public Response req(String robotId, String mainFlowId, String userInput) throws IOException, InterruptedException {
+        return req(userInput, robotId, mainFlowId, 2500);
     }
 
-    public Response req(String reqUrl, String robotId, String mainFlowId, String userInput, int timeoutMillis) throws IOException, InterruptedException {
+    public Response req(String robotId, String mainFlowId, String userInput, int timeoutMillis) throws IOException, InterruptedException {
         RequestData requestData = RequestData.create(robotId, mainFlowId, userInput);
-        return req(reqUrl, requestData, timeoutMillis);
+        return req(requestData, timeoutMillis);
     }
 
-    public Response req(String reqUrl, RequestData requestData, int timeoutMillis) throws IOException, InterruptedException {
-        // Check default value of param
+    public Response req(RequestData requestData, int timeoutMillis) throws IOException, InterruptedException {
+        // Check default value of request params
         if (requestData.getSessionId() == null)
             requestData.setSessionId("");
         if (requestData.getUserInput() == null)
@@ -42,10 +44,10 @@ public class RequestHandler {
         if (requestData.getImportVariables() == null)
             requestData.setImportVariables(new ImportVariable[0]);
         // End
-        return post(reqUrl, requestData, timeoutMillis);
+        return post(requestData, timeoutMillis);
     }
 
-    private Response post(String url, RequestData requestData, int timeoutMillis) throws IOException, InterruptedException {
+    private Response post(RequestData requestData, int timeoutMillis) throws IOException, InterruptedException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         String jsonData = mapper.writeValueAsString(requestData);
@@ -55,7 +57,7 @@ public class RequestHandler {
                 .version(HttpClient.Version.HTTP_1_1)
                 .build();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
+                .uri(URI.create(endpoint))
                 .timeout(Duration.ofMillis(timeoutMillis))
                 .POST(HttpRequest.BodyPublishers.ofString(jsonData))
                 .header("Content-Type", "application/json")
