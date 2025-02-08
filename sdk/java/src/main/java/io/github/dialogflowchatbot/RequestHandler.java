@@ -9,11 +9,11 @@ import io.github.dialogflowchatbot.sdk.UserInputResult;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 
 @Slf4j
@@ -55,20 +55,17 @@ public class RequestHandler {
     }
 
     private Response post(RequestData requestData, int timeoutMillis) throws IOException, InterruptedException {
-        String jsonData = mapper.writeValueAsString(requestData);
-        log.debug("Raw requestData {}", jsonData);
-
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(endpoint)
                 .timeout(Duration.ofMillis(timeoutMillis))
-                .POST(HttpRequest.BodyPublishers.ofString(jsonData, StandardCharsets.UTF_8))
+                .POST(HttpRequest.BodyPublishers.ofByteArray(mapper.writeValueAsBytes(requestData)))
                 .header("Content-Type", "application/json")
                 .build();
 
         // Send request and handle response
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        String responseString = response.body();
-        log.debug("Raw responseString {}", responseString);
-        return mapper.readValue(responseString, Response.class);
+        HttpResponse<InputStream> response = client.send(request, HttpResponse.BodyHandlers.ofInputStream());
+        try (InputStream body = response.body()) {
+            return mapper.readValue(body, Response.class);
+        }
     }
 }
