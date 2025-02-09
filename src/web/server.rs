@@ -162,7 +162,11 @@ pub async fn start_app() {
             "请用浏览器访问"
         },
         "http://".bright_green(),
-        listening_ip.bright_green(),
+        if listening_ip.eq("0.0.0.0") {
+            "<Your machine IP>".bright_green()
+        } else {
+            listening_ip.bright_green()
+        },
         port.to_string().blue()
     );
     log::info!("Current version: {}", VERSION);
@@ -176,7 +180,9 @@ pub async fn start_app() {
     // let addr = format!("{}:{}", settings.ip, settings.port);
     // let listener = tokio::net::TcpListener::bind(addr).await.unwrap();
     // let addr = SocketAddr::from((settings.ip, settings.port));
-    axum::serve(listener, app)
+    let serve = axum::serve(listener, app);
+    // log::info!("{:?}", serve.local_addr().unwrap());
+    serve
         .with_graceful_shutdown(shutdown_signal(sender))
         .await
         .unwrap();
