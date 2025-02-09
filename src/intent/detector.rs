@@ -14,6 +14,7 @@ pub(crate) async fn detect(robot_id: &str, s: &str) -> Result<Option<String>> {
         db_executor!(db::get_all, robot_id, super::crud::TABLE_SUFFIX,);
     let intents = match r {
         Ok(v) => {
+            // log::info!("v.len {}", v.len());
             if v.is_empty() {
                 return Ok(None);
             }
@@ -24,8 +25,10 @@ pub(crate) async fn detect(robot_id: &str, s: &str) -> Result<Option<String>> {
             return Ok(None);
         }
     };
+    // log::info!("intents.len {}", intents.len());
     let mut empty_phrase = true;
     for detail in intents.iter() {
+        // log::info!("detail.keywords.len {}", detail.keywords.len());
         let unicase_s = UniCase::new(s);
         for k in detail.keywords.iter() {
             // log::info!("intent compare {} {}", k, s);

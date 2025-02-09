@@ -155,10 +155,10 @@ class DialogFlowChatBotSDK:
 # 示例用法
 if __name__ == "__main__":
     try:
-        sdk = DialogFlowChatBotSDK("http://10.247.144.182:12715/flow/answer")
+        sdk = DialogFlowChatBotSDK("http://192.168.0.108:12715/flow/answer")
         request_data = RequestData(
-            robotId="r03dbzxp6zpk9uhkgcbw1ec604",
-            mainFlowId="103dbzxp74kjwb148ubfmhgemb"
+            robotId="r03d3slzkhr7y368qwqfkxfdtp",
+            mainFlowId="103d3slzkp1pdrzu1fnnve2wwm"
         )
 
         while True:
@@ -185,6 +185,9 @@ if __name__ == "__main__":
                 if response.data.nextAction == NextAction.TERMINATE:
                     print("Terminating the conversation.")
                     break
+
+                if request_data.userInputIntent is not None and len(request_data.userInputIntent) == 0:
+                    request_data.userInputIntent = None
 
                 if request_data.sessionId is None or len(request_data.sessionId) == 0:
                     request_data.sessionId = response.data.sessionId

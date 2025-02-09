@@ -7,6 +7,7 @@ use crate::intent::detector;
 use crate::result::{Error, Result};
 
 pub(in crate::flow::rt) async fn process(req: &mut Request) -> Result<Response> {
+    // log::info!("user input: {}", &req.user_input);
     // let now = std::time::Instant::now();
     if req.session_id.is_empty() {
         req.session_id = scru128::new_string();
