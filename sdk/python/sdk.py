@@ -102,7 +102,7 @@ class Response(BaseModel):
     err: Optional[str] = None
 
 
-class SimpleSDK:
+class DialogFlowChatBotSDK:
     def __init__(self, endpoint: str):
         if not endpoint:
             raise ValueError("Endpoint cannot be empty.")
@@ -155,7 +155,7 @@ class SimpleSDK:
 # 示例用法
 if __name__ == "__main__":
     try:
-        sdk = SimpleSDK("http://10.247.144.182:12715/flow/answer")
+        sdk = DialogFlowChatBotSDK("http://10.247.144.182:12715/flow/answer")
         request_data = RequestData(
             robotId="r03dbzxp6zpk9uhkgcbw1ec604",
             mainFlowId="103dbzxp74kjwb148ubfmhgemb"
