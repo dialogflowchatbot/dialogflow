@@ -79,7 +79,6 @@ async function deleteRobot() {
 }
 
 .header {
-  margin-left: 20px;
   font-size: 38px;
   font-weight: bold;
 }
@@ -109,13 +108,18 @@ async function deleteRobot() {
     </template>
   </el-page-header>
   <el-row class="header-row">
-    <el-col :span="18">
-      <span class="header"> {{ robotData.robotName }} </span>
+    <el-col :span="24">
+      <span class="header"> {{ robotData.robotName }}</span>
       <el-button type="primary" text @click="dialogFormVisible = true;">
         Change robot name
       </el-button>
     </el-col>
-    <el-col :span="3">
+  </el-row>
+  <el-row>
+    <el-col :span="20">
+      Robot id: {{ robotId }}
+    </el-col>
+    <el-col :span="2">
       <el-button type="danger" @click="deleteRobot">
         Delete this robot
       </el-button>

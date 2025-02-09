@@ -257,6 +257,7 @@ const goBack = () => {
     </el-page-header>
 
     <h3>{{ $t('lang.intent.detail.kw') }}</h3>
+    <div style="color: gray;">Case insensitive</div>
     <el-tag v-for="tag in intentData.keywords" type="info" :key="tag" class="mx-1" closable :disable-transitions="false"
         @close="removeKeyword(tag)">
         {{ tag }}
