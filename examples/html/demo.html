@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        #chatButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #chatButton img {
+            width: 30px;
+            height: 30px;
+        }
+        #chatWindow {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            max-height: 400px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+        }
+        #chatHeader {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        #chatHeader button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #chatBody {
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+        .message.user {
+            text-align: right;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .message.bot {
+            text-align: left;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-start;
+        }
+        .message.user .content {
+            display: inline-block;
+            background-color: #e1ffc7;
+            border: 1px solid #d4edda;
+            padding: 10px;
+            border-radius: 15px;
+            max-width: 70%;
+            margin-right: 10px; /* Add some spacing between avatar and content */
+        }
+        .message.bot .content {
+            display: inline-block;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 15px;
+            max-width: 70%;
+            margin-left: 10px; /* Add some spacing between avatar and content */
+        }
+        .avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ccc;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .avatar.user {
+            background-image: url('https://img.alicdn.com/tfs/TB1pYwBuAL0gK0jSZFhXXXJ_CXa-512-512.png'); /* User avatar image */
+            background-size: cover;
+        }
+        .avatar.bot {
+            background-image: url('https://img.alicdn.com/tfs/TB1QJdwuAL0gK0jSZFAXXcAepXa-512-512.png'); /* Bot avatar image */
+            background-size: cover;
+        }
+        #chatFooter {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        #chatInput {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            margin-right: 10px;
+        }
+        #sendButton {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatButton">
+        <img src="https://img.alicdn.com/tfs/TB1QJdwuAL0gK0jSZFAXXcAepXa-512-512.png" alt="Chat Icon">
+    </div>
+    <div id="chatWindow">
+        <div id="chatHeader">
+            Chat
+            <button id="closeButton">&times;</button>
+        </div>
+        <div id="chatBody"></div>
+        <div id="chatFooter">
+            <input type="text" id="chatInput" placeholder="Type a message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('chatButton').addEventListener('click', function() {
+            var chatWindow = document.getElementById('chatWindow');
+            if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
+                chatWindow.style.display = 'flex';
+            } else {
+                chatWindow.style.display = 'none';
+            }
+        });
+
+        document.getElementById('closeButton').addEventListener('click', function() {
+            document.getElementById('chatWindow').style.display = 'none';
+        });
+
+        document.getElementById('sendButton').addEventListener('click', sendMessage);
+        document.getElementById('chatInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            var inputField = document.getElementById('chatInput');
+            var messageText = inputField.value.trim();
+            if (messageText !== '') {
+                addMessage(messageText, 'user');
+                inputField.value = '';
+                setTimeout(function() {
+                    addMessage('This is a bot response.', 'bot');
+                }, 1000);
+            }
+        }
+
+        function addMessage(text, sender) {
+            var chatBody = document.getElementById('chatBody');
+            var messageDiv = document.createElement('div');
+            messageDiv.className = 'message ' + sender;
+
+            var avatarDiv = document.createElement('div');
+            avatarDiv.className = 'avatar ' + sender;
+
+            var contentDiv = document.createElement('div');
+            contentDiv.className = 'content';
+            contentDiv.textContent = text;
+
+            if (sender === 'user') {
+                messageDiv.appendChild(contentDiv);
+                messageDiv.appendChild(avatarDiv);
+            } else {
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(contentDiv);
+            }
+
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+</body>
+</html>
+
+
+
