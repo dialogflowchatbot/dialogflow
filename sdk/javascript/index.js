@@ -22,7 +22,7 @@ class DialogFlowChatBotSDK {
             userInputResult: this.UserInputResult.SUCCESSFUL,
             userInput: "",
             importVariables: [],
-            userInputIntent: ""
+            userInputIntent: null
         };
     }
 
@@ -35,16 +35,23 @@ class DialogFlowChatBotSDK {
             data.userInputResult = this.UserInputResult.SUCCESSFUL;
         if (data.importVariables == null)
             data.importVariables = [];
+        if (data.userInputIntent != null && data.userInputIntent == '')
+            data.userInputIntent = null;
         const response = await fetch(this.url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                //                'Authorization': `Bearer ${this.apiKey}`
+                // 'Authorization': `Bearer ${this.apiKey}`
             },
             body: JSON.stringify(data)
         });
-        return await response.json();
+        const r = await response.json();
+        if (r && r.data) {
+            if (!data.sessionId)
+                data.sessionId = r.data.sessionId;
+        }
+        return r;
     }
 }
 
-module.exports = DialogFlowChatBotSDK;
+export { DialogFlowChatBotSDK };
