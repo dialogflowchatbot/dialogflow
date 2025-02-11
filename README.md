@@ -37,6 +37,7 @@ This is a software with **only one executable file**, including a visual process
 |![](https://dialogflowchatbot.github.io/assets/externalApiNode-Cq5407hi.png)|External HTTP node|
 |![](https://dialogflowchatbot.github.io/assets/sendEmailNode-CSpJZw-P.png)|Send email node|
 |![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/endNode.png)|The end node|
+
 Using the different nodes above, to arrange and combine, you can get a conversational bot that can handle problems in different scenarios.
 
 # Screenshots
