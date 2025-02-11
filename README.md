@@ -37,6 +37,7 @@ This is a software with **only one executable file**, including a visual process
 |![](https://dialogflowchatbot.github.io/assets/externalApiNode-Cq5407hi.png)|External HTTP node|
 |![](https://dialogflowchatbot.github.io/assets/sendEmailNode-CSpJZw-P.png)|Send email node|
 |![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/endNode.png)|The end node|
+Using the different nodes above, to arrange and combine, you can get a conversational bot that can handle problems in different scenarios.
 
 # Screenshots
 ![Robot detail](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot2.png)
@@ -56,9 +57,16 @@ This is a software with **only one executable file**, including a visual process
 
 
 ## Get started
-1. Download on [Github release page](https://github.com/dialogflowchatbot/dialogflow/releases)
-1. Run it.
-1. Open your browser and visit http://localhost:12715 (you can change port in settings) to see the application in action
+
+### Docker image
+1. docker pull dialogflowchatbot/demo
+2. docker run -dp 127.0.0.1:12715:12715 --name dialogflowdemo dialogflowchatbot/demo
+3. Open your browser and visit: http://127.0.0.1:12715/
+
+### Binary release
+1. From [Github release page](https://github.com/dialogflowchatbot/dialogflow/releases), depending on the operating system, download the application.
+1. Run it directly, or use the `-ip` and `-port` parameters to perform the listening IP address and port, e.g.: `dialogflow -ip 0.0.0.0 -port 8888`.
+1. Open your browser and visit http://localhost:12715 (by default) or http://<new IP>:<new port> to see the application in action
 1. Add a main flow and click its name into it
 1. Create dialog flow by dragging and drop nodes onto canvas
 1. Test it
