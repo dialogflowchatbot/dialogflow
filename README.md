@@ -67,7 +67,7 @@ Using the different nodes above, to arrange and combine, you can get a conversat
 ### Binary release
 1. From [Github release page](https://github.com/dialogflowchatbot/dialogflow/releases), depending on the operating system, download the application.
 1. Run it directly, or use the `-ip` and `-port` parameters to perform the listening IP address and port, e.g.: `dialogflow -ip 0.0.0.0 -port 8888`.
-1. Open your browser and visit http://localhost:12715 (by default) or http://<new IP>:<new port> to see the application in action
+1. Open your browser and visit http://localhost:12715 (by default) or http://`new IP`:`new port` to see the application in action
 1. Add a main flow and click its name into it
 1. Create dialog flow by dragging and drop nodes onto canvas
 1. Test it
