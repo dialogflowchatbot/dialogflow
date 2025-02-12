@@ -1,3 +1,5 @@
+[简体中文](./README_zh-CN.md) | English
+
 # Dialog flow chat bot
 This is a software with **only one executable file**, including a visual process editor and a response system.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
