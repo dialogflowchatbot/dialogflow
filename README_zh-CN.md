@@ -42,6 +42,9 @@
 
 通过使用上面不同的节点来排列和组合, 就可以创建解决不同场景问题的机器人.
 
+像这样
+![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
+
 # 截图
 ![Robot detail](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot2.png)
 
