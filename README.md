@@ -4,7 +4,7 @@
 This is a software with **only one executable file**, including a visual process editor and a response system.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
 
-![Homepage](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot1.png)
+![Dialog flow editor](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
 
 # ✨ Features
 * 🛒 **Light** Only ONE executable file, it can run smoothly on laptops without GPUs (data files will be created at runtime automatically).
@@ -42,10 +42,9 @@ This is a software with **only one executable file**, including a visual process
 
 Using the different nodes above, to arrange and combine, you can get a conversational bot that can handle problems in different scenarios.
 
-Like this
-![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
-
 # Screenshots
+![Homepage](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot1.png)
+
 ![Robot detail](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot2.png)
 
 ### Try a demo dialog flow
