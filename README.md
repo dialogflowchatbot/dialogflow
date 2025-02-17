@@ -1,7 +1,7 @@
 [简体中文](./README_zh-CN.md) | English
 
 # Dialog flow chat bot
-This is a software with **only one executable file**, including a visual process editor and a response system.  
+**only ONE executable file**, you can use it directly, including intent detection, AI management, a visual process editor and a response system.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
 
 ![Dialog flow editor](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
