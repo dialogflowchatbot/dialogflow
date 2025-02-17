@@ -47,8 +47,8 @@ Using the different nodes above, to arrange and combine, you can get a conversat
 
 ![Robot detail](./doc/assets/screenshots/robotDetail.png)
 
-### Try a demo dialog flow
-![Demo](./doc/assets/demo1.gif)
+### Trying a demo dialog flow
+![Demo](./doc/assets/screenshots/demo1.gif)
 
 ### Setup a condition branch
 ![Setup a condition branch](./doc/assets/screenshots/condition1.gif)

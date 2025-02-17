@@ -48,7 +48,7 @@
 ![Robot detail](./doc/assets/screenshots/robotDetail.png)
 
 ### 体验演示机器人
-![Demo](./doc/assets/demo1.gif)
+![Demo](./doc/assets/screenshots/demo1.gif)
 
 ### 创建一个条件节点的分支
 ![Setup a condition branch](./doc/assets/screenshots/condition1.gif)
