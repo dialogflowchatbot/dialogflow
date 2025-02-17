@@ -4,7 +4,7 @@
 **only ONE executable file**, you can use it directly, including intent detection, AI management, a visual process editor and a response system.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
 
-![Dialog flow editor](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
+![Dialog flow editor](./doc/assets/screenshots/flow-editor.png)
 
 # ✨ Features
 * 🛒 **Light** Only ONE executable file, it can run smoothly on laptops without GPUs (data files will be created at runtime automatically).
@@ -30,35 +30,35 @@
 # Function nodes
 |Node|Name|
 |----|----|
-|![DialogNode](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/dialogNode.png)|Dialog Node|
-|![LLM chat node](https://dialogflowchatbot.github.io/assets/llmChatNode-IFUpFC-1.png)|Large language model chat node|
-|![](https://dialogflowchatbot.github.io/assets/knowledgeBaseAnswerNode-nPaXLuCc.png)|Knowledge base answer node|
-|![](https://dialogflowchatbot.github.io/assets/conditionNode-DyKXzgYH.png)|Conditions node|
-|![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/gotoNode.png)|Goto node|
-|![](https://dialogflowchatbot.github.io/assets/collectNode-8FKuiM1E.png)|Collect node|
-|![](https://dialogflowchatbot.github.io/assets/externalApiNode-Cq5407hi.png)|External HTTP node|
-|![](https://dialogflowchatbot.github.io/assets/sendEmailNode-CSpJZw-P.png)|Send email node|
-|![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/endNode.png)|The end node|
+|![DialogNode](./doc/assets/screenshots/dialogNode.png)|Dialog Node|
+|![LLM chat node](./doc/assets/screenshots/llmChatNode.png)|Large language model chat node|
+|![](./doc/assets/screenshots/knowledgeBaseAnswerNode.png)|Knowledge base answer node|
+|![](./doc/assets/screenshots/conditionNode.png)|Conditions node|
+|![](./doc/assets/screenshots/gotoNode.png)|Goto node|
+|![](./doc/assets/screenshots/collectNode.png)|Collect node|
+|![](./doc/assets/screenshots/externalApiNode.png)|External HTTP node|
+|![](./doc/assets/screenshots/sendEmailNode.png)|Send email node|
+|![](./doc/assets/screenshots/theEndNode.png)|The end node|
 
 Using the different nodes above, to arrange and combine, you can get a conversational bot that can handle problems in different scenarios.
 
 # Screenshots
-![Homepage](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot1.png)
+![Homepage](./doc/assets/screenshots/homepage.png)
 
-![Robot detail](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot2.png)
+![Robot detail](./doc/assets/screenshots/robotDetail.png)
 
 ### Try a demo dialog flow
-![Demo](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/ae15f7fabebe154ebc8dec8511cb1ec063163358/src/assets/demo1.gif)
+![Demo](./doc/assets/demo1.gif)
 
 ### Setup a condition branch
-![Setup a condition branch](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/18f8b2821921f1732e7699f515615a3d7838f16a/screenshots/condition1.gif)
+![Setup a condition branch](./doc/assets/screenshots/condition1.gif)
 
 ### Text generation
 
-![Text generation](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/main/src/assets/screenshots/textGeneration.gif?raw=true "Text generation")
+![Text generation](./doc/assets/screenshots/textGeneration.gif "Text generation")
 
 ### Testing a dialog flow
-![Flow testing tool](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/main/src/assets/screenshots/testing.png?raw=true "Flow testing tool")
+![Flow testing tool](./doc/assets/screenshots/testing.png "Flow testing tool")
 
 
 ## Get started
