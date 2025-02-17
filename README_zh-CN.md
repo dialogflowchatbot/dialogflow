@@ -4,7 +4,7 @@
 **只有一个执行文件** 的AI工具，不用安装任何依赖就可以**直接使用**, 它包含了意图识别，AI模型管理，可视化的流程编辑器，和应答逻辑.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
 
-![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
+![](./doc/assets/screenshots/flow-editor.png)
 
 # ✨ 关键特性
 * 🛒 **轻量级** 只有一个执行文件, 可以在没有GPU的笔记本上平滑的执行 (数据文件会在运行期动态的生成).
@@ -30,35 +30,35 @@
 # 功能节点列表
 |节点|名称|
 |----|----|
-|![DialogNode](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/dialogNode.png)|对话答案节点|
-|![LLM chat node](https://dialogflowchatbot.github.io/assets/llmChatNode-IFUpFC-1.png)|大模型聊天节点|
-|![](https://dialogflowchatbot.github.io/assets/knowledgeBaseAnswerNode-nPaXLuCc.png)|知识库答案节点|
-|![](https://dialogflowchatbot.github.io/assets/conditionNode-DyKXzgYH.png)|条件节点|
-|![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/gotoNode.png)|跳转节点|
-|![](https://dialogflowchatbot.github.io/assets/collectNode-8FKuiM1E.png)|信息收集节点|
-|![](https://dialogflowchatbot.github.io/assets/externalApiNode-Cq5407hi.png)|请求外部接口节点|
-|![](https://dialogflowchatbot.github.io/assets/sendEmailNode-CSpJZw-P.png)|邮件发送节点|
-|![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/endNode.png)|流程结束节点|
+|![DialogNode](./doc/assets/screenshots/dialogNode.png)|对话答案节点|
+|![LLM chat node](./doc/assets/screenshots/llmChatNode.png)|大模型聊天节点|
+|![](./doc/assets/screenshots/knowledgeBaseAnswerNode.png)|知识库答案节点|
+|![](./doc/assets/screenshots/conditionNode.png)|条件节点|
+|![](./doc/assets/screenshots/gotoNode.png)|跳转节点|
+|![](./doc/assets/screenshots/collectNode.png)|信息收集节点|
+|![](./doc/assets/screenshots/externalApiNode.png)|请求外部接口节点|
+|![](./doc/assets/screenshots/sendEmailNode.png)|邮件发送节点|
+|![](./doc/assets/screenshots/theEndNode.png)|流程结束节点|
 
 通过使用上面不同的节点来排列和组合, 就可以创建解决不同场景问题的机器人.
 
 # 截图
-![Homepage](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot1.png)
+![Homepage](./doc/assets/screenshots/homepage.png)
 
-![Robot detail](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot2.png)
+![Robot detail](./doc/assets/screenshots/robotDetail.png)
 
 ### 体验演示机器人
-![Demo](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/ae15f7fabebe154ebc8dec8511cb1ec063163358/src/assets/demo1.gif)
+![Demo](./doc/assets/demo1.gif)
 
 ### 创建一个条件节点的分支
-![Setup a condition branch](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/18f8b2821921f1732e7699f515615a3d7838f16a/screenshots/condition1.gif)
+![Setup a condition branch](./doc/assets/screenshots/condition1.gif)
 
 ### 对话答案节点的自动文本生成
 
-![Text generation](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/main/src/assets/screenshots/textGeneration.gif?raw=true "Text generation")
+![Text generation](./doc/assets/screenshots/textGeneration.gif "Text generation")
 
 ### 测试一个对话机器人
-![Flow testing tool](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/main/src/assets/screenshots/testing.png?raw=true "Flow testing tool")
+![Flow testing tool](./doc/assets/screenshots/testing.png "Flow testing tool")
 
 
 ## 现在就开始使用
