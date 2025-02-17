@@ -1,10 +1,10 @@
 简体中文 | [English](./README.md)
 
 # Dialog flow chat bot
-这是 **只有一个执行文件** 的AI工具, 它包含了一个可视化的流程编辑器和应答逻辑.  
+**只有一个执行文件** 的AI工具，不用安装任何依赖就可以**直接使用**, 它包含了意图识别，AI模型管理，可视化的流程编辑器，和应答逻辑.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
 
-![Homepage](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot1.png)
+![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
 
 # ✨ 关键特性
 * 🛒 **轻量级** 只有一个执行文件, 可以在没有GPU的笔记本上平滑的执行 (数据文件会在运行期动态的生成).
@@ -42,10 +42,9 @@
 
 通过使用上面不同的节点来排列和组合, 就可以创建解决不同场景问题的机器人.
 
-像这样
-![](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/7f412d0746cfbddd43a7a75abb246add63d12200/src/assets/screenshots/flow-editor.png)
-
 # 截图
+![Homepage](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot1.png)
+
 ![Robot detail](https://github.com/dialogflowchatbot/dialogflow-showcase/blob/c30533aead90dfe563f1dbe89e4623c215bd0f2d/src/assets/screenshots/screenshot2.png)
 
 ### 体验演示机器人
