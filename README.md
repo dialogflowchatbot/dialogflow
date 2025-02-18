@@ -61,7 +61,7 @@ Using the different nodes above, to arrange and combine, you can get a conversat
 ![Flow testing tool](./doc/assets/screenshots/testing.png "Flow testing tool")
 
 
-## Get started
+# Get started
 
 ### Docker image
 1. docker pull dialogflowchatbot/demo
