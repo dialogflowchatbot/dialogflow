@@ -1,5 +1,7 @@
 简体中文 | [English](./README.md)
 
+欢迎给本项目，或者给[Github上的项目](https://github.com/dialogflowchatbot/dialogflow) ✨**Star**🎇!
+
 # Dialog flow chat bot
 **只有一个执行文件** 的AI工具，不用安装任何依赖就可以**直接使用**, 它包含了意图识别，AI模型管理，可视化的流程编辑器，和应答逻辑.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" />
@@ -61,7 +63,7 @@
 ![Flow testing tool](./doc/assets/screenshots/testing.png "Flow testing tool")
 
 
-## 现在就开始使用
+# 现在就开始使用
 
 ### Docker 镜像
 1. docker pull dialogflowchatbot/demo
