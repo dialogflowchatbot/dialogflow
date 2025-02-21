@@ -3,10 +3,10 @@ use std::default::Default;
 use std::net::SocketAddr;
 use std::sync::{LazyLock, Mutex};
 
+use axum::Json;
 use axum::body::Bytes;
 use axum::extract::Query;
 use axum::response::IntoResponse;
-use axum::Json;
 use serde::{Deserialize, Serialize};
 use serde_json::{Map, Value};
 
@@ -393,8 +393,8 @@ pub(crate) async fn smtp_test(Json(settings): Json<Settings>) -> impl IntoRespon
 }
 
 pub(crate) fn check_smtp_settings(settings: &Settings) -> Result<bool> {
-    use lettre::transport::smtp::authentication::Credentials;
     use lettre::SmtpTransport;
+    use lettre::transport::smtp::authentication::Credentials;
     let creds = Credentials::new(
         settings.smtp_username.to_owned(),
         settings.smtp_password.to_owned(),

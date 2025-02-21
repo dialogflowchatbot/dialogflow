@@ -2,9 +2,9 @@ use std::collections::HashMap;
 use std::time::Duration;
 use std::vec::Vec;
 
-use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 use reqwest::Client;
 use reqwest::RequestBuilder;
+use reqwest::header::{HeaderMap, HeaderName, HeaderValue};
 
 use super::dto::{HttpReqInfo, Method, PostContentType, Protocol, ResponseData, ValueSource};
 use crate::result::Result;

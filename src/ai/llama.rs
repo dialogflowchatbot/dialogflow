@@ -85,7 +85,7 @@ pub(super) fn gen_text(
             }
         };
         let mut rng = Rand::new();
-        LogitsProcessor::from_sampling(rng.gen::<u64>(), sampling)
+        LogitsProcessor::from_sampling(rng.r#gen::<u64>(), sampling)
     };
     // log::info!("logits_processor finished");
     let start_gen = std::time::Instant::now();
@@ -125,7 +125,7 @@ pub(super) fn gen_text(
             Some(LlamaEosToks::Single(eos_tok_id)) if next_token == *eos_tok_id => {
                 break;
             }
-            Some(LlamaEosToks::Multiple(ref eos_ids)) if eos_ids.contains(&next_token) => {
+            Some(LlamaEosToks::Multiple(eos_ids)) if eos_ids.contains(&next_token) => {
                 break;
             }
             _ => (),

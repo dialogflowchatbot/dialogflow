@@ -3,7 +3,7 @@ use core::time::Duration;
 
 use enum_dispatch::enum_dispatch;
 use lettre::transport::smtp::PoolConfig;
-use rkyv::{util::AlignedVec, Archive, Deserialize, Serialize};
+use rkyv::{Archive, Deserialize, Serialize, util::AlignedVec};
 
 use super::condition::ConditionData;
 use super::context::Context;
@@ -273,11 +273,11 @@ impl SendEmailNode {
     fn send_email(&self, settings: &crate::man::settings::Settings) -> Result<()> {
         use lettre::transport::smtp::authentication::Credentials;
         use lettre::{
+            AsyncSmtpTransport, AsyncTransport, SmtpTransport, Tokio1Executor, Transport,
             message::{
-                header::{self, Bcc, Cc, ContentType, To},
-                Mailboxes, MessageBuilder, SinglePart,
+                Mailboxes, MessageBuilder,
+                header::{Bcc, Cc, ContentType, To},
             },
-            AsyncSmtpTransport, AsyncTransport, Message, SmtpTransport, Tokio1Executor, Transport,
         };
         let mailboxes: Mailboxes = self.to_recipients.join(",").parse()?;
         let to_header: To = mailboxes.into();

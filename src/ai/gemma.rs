@@ -52,7 +52,7 @@ pub(super) fn gen_text(
         None => {
             return Err(Error::ErrorWithMessage(String::from(
                 "cannot find the <eos> token",
-            )))
+            )));
         }
     };
     let mut generated_tokens = 0usize;
@@ -81,7 +81,7 @@ pub(super) fn gen_text(
 
         let mut rng = Rand::new();
         let mut logits_processor = LogitsProcessor::new(
-            rng.gen::<u64>(),
+            rng.r#gen::<u64>(),
             Some(super::completion::TEMPERATURE),
             top_p,
         );

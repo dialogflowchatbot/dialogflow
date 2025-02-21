@@ -6,7 +6,7 @@ use std::vec::Vec;
 
 // use erased_serde::{Deserialize, Serialize};
 use serde::{Deserialize, Serialize};
-use tokio::time::{interval, Duration};
+use tokio::time::{Duration, interval};
 
 use super::node::RuntimeNnodeEnum;
 use crate::ai::completion::Prompt;

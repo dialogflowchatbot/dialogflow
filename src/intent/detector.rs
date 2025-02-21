@@ -6,7 +6,7 @@ use super::phrase;
 use crate::ai::embedding::embedding;
 use crate::db;
 use crate::db_executor;
-use crate::result::{Error, Result};
+use crate::result::Result;
 
 pub(crate) async fn detect(robot_id: &str, s: &str) -> Result<Option<String>> {
     // let now = std::time::Instant::now();

@@ -853,13 +853,13 @@ fn load_safetensors(mirror: &str, json_file: &str) -> Result<Vec<String>> {
         None => {
             return Err(Error::ErrorWithMessage(format!(
                 "no weight map in {json_file:?}"
-            )))
+            )));
         }
         Some(serde_json::Value::Object(map)) => map,
         Some(_) => {
             return Err(Error::ErrorWithMessage(format!(
                 "weight map in {json_file:?} is not a map"
-            )))
+            )));
         }
     };
     let mut safetensors_files = std::collections::HashSet::new();

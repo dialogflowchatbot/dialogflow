@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use super::huggingface::{load_bert_model_files, HuggingFaceModel, HuggingFaceModelInfo};
+use super::huggingface::HuggingFaceModel;
 
 #[derive(Clone, Deserialize, Serialize)]
 #[serde(tag = "id", content = "model")]

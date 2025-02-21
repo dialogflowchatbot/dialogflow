@@ -59,7 +59,7 @@ pub(super) fn gen_text(
         None => {
             return Err(Error::ErrorWithMessage(String::from(
                 "cannot find the endoftext token",
-            )))
+            )));
         }
     };
     // log::info!("{prompt}");
@@ -69,7 +69,7 @@ pub(super) fn gen_text(
     let mut rng = Rand::new();
     let mut model = model.clone();
     let mut logits_processor = LogitsProcessor::new(
-        rng.gen::<u64>(),
+        rng.r#gen::<u64>(),
         Some(super::completion::TEMPERATURE),
         top_p,
     );

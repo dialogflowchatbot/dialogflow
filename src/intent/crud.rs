@@ -1,9 +1,9 @@
 use std::collections::HashMap;
 use std::vec::Vec;
 
+use axum::Json;
 use axum::extract::Query;
 use axum::response::IntoResponse;
-use axum::Json;
 
 use super::detector;
 use super::dto::{IntentDetail, IntentFormData, IntentPhraseData};

@@ -1,17 +1,14 @@
-use core::time::Duration;
-
 // use std::fs::File;
 // use std::io::Read;
 // use std::path::Path;
-use std::fs::OpenOptions;
-use std::io::{BufReader, Cursor, Read};
+use std::io::{Cursor, Read};
 use std::sync::OnceLock;
 use std::vec::Vec;
 
 use futures_util::StreamExt;
-use quick_xml::events::Event;
 use quick_xml::Reader;
-use sqlx::{pool::PoolOptions, Row, Sqlite};
+use quick_xml::events::Event;
+use sqlx::{Row, Sqlite};
 use zip::ZipArchive;
 
 use super::dto::DocData;

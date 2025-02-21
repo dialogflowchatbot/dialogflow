@@ -3,7 +3,7 @@ use std::path::Path;
 use std::vec::Vec;
 
 use axum::extract::Query;
-use axum::{response::IntoResponse, Json};
+use axum::{Json, response::IntoResponse};
 use redb::TableDefinition;
 
 use super::dto::{RobotData, RobotQuery, RobotType};
@@ -22,8 +22,8 @@ const TABLE: TableDefinition<&str, &[u8]> = TableDefinition::new("robots");
 fn get_robot_id() -> String {
     let mut id = String::with_capacity(32);
     id.push('r');
-    let gen = scru128::new_string();
-    id.push_str(&gen);
+    let gen_id = scru128::new_string();
+    id.push_str(&gen_id);
     id
 }
 

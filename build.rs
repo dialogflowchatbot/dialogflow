@@ -6,7 +6,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use flate2::{write::GzEncoder, Compression};
+use flate2::{Compression, write::GzEncoder};
 
 fn walk_assets(path: impl AsRef<Path>) -> Result<Vec<PathBuf>, std::io::Error> {
     let mut files: Vec<PathBuf> = Vec::new();

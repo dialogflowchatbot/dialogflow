@@ -1,12 +1,8 @@
-use core::time::Duration;
-
-use std::collections::HashMap;
-use std::fs::OpenOptions;
-use std::sync::{LazyLock, Mutex, OnceLock};
+use std::sync::OnceLock;
 use std::vec::Vec;
 
 use futures_util::StreamExt;
-use sqlx::{pool::PoolOptions, Row, Sqlite};
+use sqlx::{Row, Sqlite};
 
 use super::dto::IntentPhraseData;
 use crate::ai::embedding::embedding;
@@ -165,7 +161,10 @@ pub(crate) async fn add(
                 .execute(&mut **txn)
                 .await?
                 .last_insert_rowid();
-            let sql = format!("INSERT INTO {} (id, intent_id, intent_name, phrase, phrase_vec)VALUES(?, ?, ?, ?, ?)", robot_id);
+            let sql = format!(
+                "INSERT INTO {} (id, intent_id, intent_name, phrase, phrase_vec)VALUES(?, ?, ?, ?, ?)",
+                robot_id
+            );
             sqlx::query::<Sqlite>(&sql)
                 .bind(last_insert_rowid)
                 .bind(intent_id)

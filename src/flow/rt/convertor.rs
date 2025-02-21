@@ -69,7 +69,7 @@ fn check_first_node(
             let first_node_id = if flow_idx == 0 { mainflow_id } else { &f.id };
             if node.get_node_id().eq(&id) {
                 match node {
-                    Node::DialogNode(ref mut n) => n.node_id = String::from(first_node_id),
+                    Node::DialogNode(n) => n.node_id = String::from(first_node_id),
                     Node::LlmChatNode(n) => n.node_id = String::from(first_node_id),
                     Node::ConditionNode(n) => n.node_id = String::from(first_node_id),
                     Node::CollectNode(n) => n.node_id = String::from(first_node_id),
@@ -244,7 +244,7 @@ fn convert_node(main_flow_id: &str, node: &mut Node) -> Result<()> {
                     _ => {
                         return Err(Error::ErrorWithMessage(String::from(
                             "Unknown collection branch type",
-                        )))
+                        )));
                     }
                 };
             }

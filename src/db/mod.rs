@@ -1,7 +1,7 @@
 // pub(crate) mod embedding;
 // pub(crate) mod embedding_sqlite;
 
-use std::borrow::{Borrow, Cow};
+use std::borrow::Borrow;
 use std::sync::LazyLock;
 use std::vec::Vec;
 
@@ -386,7 +386,7 @@ pub(crate) async fn init_sqlite_datasource(
             return Err(Error::ErrorWithMessage(format!(
                 "Created database file failed, err: {:?}",
                 &e
-            )))
+            )));
         }
     };
     let pool_ops = sqlx::pool::PoolOptions::<sqlx::Sqlite>::new()

@@ -9,7 +9,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::{Map, Value};
 use tokenizers::Tokenizer;
 
-use super::huggingface::{load_bert_model_files, HuggingFaceModel, HuggingFaceModelInfo};
+use super::huggingface::{HuggingFaceModel, HuggingFaceModelInfo, load_bert_model_files};
 use crate::man::settings;
 use crate::result::{Error, Result};
 
@@ -77,7 +77,7 @@ fn hugging_face(robot_id: &str, info: &HuggingFaceModelInfo, s: &str) -> Result<
         let r = load_bert_model_files(&info.repository)?;
         model.insert(String::from(robot_id), r);
     };
-    let (m, ref mut t) = model.get_mut(robot_id).unwrap();
+    let (m, t) = model.get_mut(robot_id).unwrap();
     // let tokenizer = match t.with_padding(None).with_truncation(None) {
     //     Ok(t) => t,
     //     Err(e) => return Err(Error::ErrorWithMessage(format!("{}", &e))),

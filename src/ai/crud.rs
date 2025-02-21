@@ -9,8 +9,8 @@ use futures::future::Either;
 use futures::stream::{self, Stream};
 use serde::{Deserialize, Serialize};
 use tokio::sync::mpsc;
-use tokio_stream::wrappers::ReceiverStream;
 use tokio_stream::StreamExt as _;
+use tokio_stream::wrappers::ReceiverStream;
 
 use crate::ai::completion;
 
