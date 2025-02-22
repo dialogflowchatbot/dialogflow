@@ -424,7 +424,7 @@ impl RuntimeNode for LlmChatNode {
         let bytes = rkyv::to_bytes::<rkyv::rancor::Error>(&r).unwrap();
         ctx.node = Some(bytes.into_vec());
         if self.streaming {
-            let r = super::facade::get_sender(&req.session_id);
+            let r = super::facade::get_sender(req.session_id.as_ref().unwrap());
             if r.is_err() {
                 add_next_node(ctx, &self.next_node_id);
                 return false;
