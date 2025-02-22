@@ -297,7 +297,7 @@ pub(crate) async fn remove_regex(Json(params): Json<IntentFormData>) -> impl Int
 
 #[axum::debug_handler]
 pub(crate) async fn add_phrase(
-    Query(query): Query<IntentFormData>,
+    // Query(query): Query<IntentFormData>,
     Json(params): Json<IntentFormData>,
 ) -> impl IntoResponse {
     let intent_id = params.id.as_str();
@@ -321,20 +321,11 @@ pub(crate) async fn add_phrase(
             Error::ErrorWithMessage(String::from("Invalid idx parameter."))
         })
         .and_then(|vec_row_id| {
-            query
-                .data
-                .parse::<usize>()
-                .map_err(|e| {
-                    log::error!("{:#?}", &e);
-                    Error::ErrorWithMessage(String::from("Invalid idx parameter."))
-                })
-                .and_then(|idx| {
-                    d.phrases.push(IntentPhraseData {
-                        id: vec_row_id,
-                        phrase: String::from(params.data.as_str()),
-                    });
-                    db_executor!(db::write, &params.robot_id, TABLE_SUFFIX, intent_id, &d)
-                })
+            d.phrases.push(IntentPhraseData {
+                id: vec_row_id,
+                phrase: String::from(params.data.as_str()),
+            });
+            db_executor!(db::write, &params.robot_id, TABLE_SUFFIX, intent_id, &d)
         });
     to_res(r)
 }
