@@ -17,13 +17,13 @@ pub(crate) struct Request {
     #[serde(rename = "mainFlowId")]
     pub(crate) main_flow_id: String,
     #[serde(rename = "sessionId")]
-    pub(crate) session_id: String,
+    pub(crate) session_id: Option<String>,
     #[serde(rename = "userInputResult")]
     pub(crate) user_input_result: UserInputResult,
     #[serde(rename = "userInput")]
     pub(crate) user_input: String,
     #[serde(rename = "importVariables")]
-    pub(crate) import_variables: Vec<SimpleVariable>,
+    pub(crate) import_variables: Option<Vec<SimpleVariable>>,
     #[serde(rename = "userInputIntent")]
     pub(crate) user_input_intent: Option<String>,
 }
@@ -68,7 +68,7 @@ pub(crate) struct Response {
 impl Response {
     pub(crate) fn new(req: &Request) -> Self {
         Self {
-            session_id: req.session_id.clone(),
+            session_id: req.session_id.as_ref().unwrap().clone(),
             have_answers: false,
             answers: Vec::with_capacity(5),
             collect_data: Vec::with_capacity(10),

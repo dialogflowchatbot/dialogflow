@@ -26,7 +26,7 @@ pub(crate) async fn answer_sse(Json(req): Json<Request>) -> impl IntoResponse {
     let now = std::time::Instant::now();
     let (s, r) = tokio::sync::mpsc::channel::<String>(1);
     let mut l = ANSWER_SSE_SESSIONS.lock().unwrap();
-    l.insert(String::from(req.session_id), s);
+    l.insert(String::new(), s);
     log::info!("Response used time:{:?}", now.elapsed());
     ""
 }

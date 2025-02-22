@@ -9,10 +9,10 @@ use crate::result::{Error, Result};
 pub(in crate::flow::rt) async fn process(req: &mut Request) -> Result<Response> {
     // log::info!("user input: {}", &req.user_input);
     // let now = std::time::Instant::now();
-    if req.session_id.is_empty() {
-        req.session_id = scru128::new_string();
+    if req.session_id.is_none() || req.session_id.as_ref().unwrap().is_empty() {
+        req.session_id = Some(scru128::new_string());
     }
-    let mut ctx = Context::get(&req.robot_id, &req.session_id);
+    let mut ctx = Context::get(&req.robot_id, req.session_id.as_ref().unwrap());
     // log::info!("get ctx {:?}", now.elapsed());
     // let now = std::time::Instant::now();
     if ctx.no_node() {
@@ -31,8 +31,10 @@ pub(in crate::flow::rt) async fn process(req: &mut Request) -> Result<Response> 
         // println!("{:?}", req.user_input_intent);
     }
     // log::info!("Intent detection took {:?}", now.elapsed());
-    if !req.import_variables.is_empty() {
-        for v in req.import_variables.iter_mut() {
+    if req.import_variables.is_some() {
+        let import_variables = std::mem::replace(&mut req.import_variables, None);
+        let mut import_variables = import_variables.unwrap();
+        for v in import_variables.iter_mut() {
             let k = std::mem::take(&mut v.var_name);
             let v = crate::variable::dto::VariableValue::new(&v.var_val, &v.var_type);
             ctx.vars.insert(k, v);
