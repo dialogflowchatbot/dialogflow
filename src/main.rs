@@ -10,6 +10,12 @@ use tokio::runtime::Builder;
 
 use dialogflow::web::server::start_app;
 
+// Avoid musl's default allocator due to lackluster performance
+// https://nickb.dev/blog/default-musl-allocator-considered-harmful-to-performance
+#[cfg(target_env = "musl")]
+#[global_allocator]
+static GLOBAL: mimalloc::MiMalloc = mimalloc::MiMalloc;
+
 fn main() {
     // dialogflow::web::t1();
     unsafe {
