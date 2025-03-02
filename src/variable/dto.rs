@@ -34,7 +34,7 @@ pub(crate) struct Variable {
     #[serde(rename = "obtainValueExpression")]
     pub(crate) obtain_value_expression: String,
     #[serde(rename = "cacheEnabled")]
-    pub(crate) cach_enabled: bool,
+    pub(crate) cache_enabled: bool,
 }
 
 impl Variable {
@@ -103,7 +103,7 @@ impl Variable {
         };
         // println!("{}", r);
         let v = VariableValue::new(r, &self.var_type);
-        if self.cach_enabled {
+        if self.cache_enabled {
             ctx.vars.insert(self.var_name.clone(), v);
             return ctx.vars.get(&self.var_name);
         } else {
@@ -116,7 +116,7 @@ impl Variable {
         req: &'b Request,
         ctx: &'b mut Context,
     ) -> Option<&'b VariableValue> {
-        if self.cach_enabled && ctx.vars.contains_key(&self.var_name) {
+        if self.cache_enabled && ctx.vars.contains_key(&self.var_name) {
             // println!("get from cache");
             ctx.vars.get(&self.var_name)
         } else {
