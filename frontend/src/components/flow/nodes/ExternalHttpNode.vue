@@ -132,6 +132,12 @@ onMounted(async () => {
                     </el-select>
                 </el-form-item>
                 <el-form-item label="" :label-width="formLabelWidth">
+                    <el-select ref="apisRef" v-model="nodeData.httpApiId" placeholder="Choose an http interface"
+                        @change="(v) => showOptions(v)">
+                        <el-option v-for="item in apis" :key="item.id" :label="item.name" :value="item.id" />
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="" :label-width="formLabelWidth">
                     <el-text size="large">
                         <div><strong>Please note</strong> that this is just calling the interface, but the returned data
                             will be
