@@ -1,6 +1,9 @@
+# New Home!
+## This project has been moved to: https://github.com/dialogflowai/dialogflow
+
 [简体中文](./README_zh-CN.md) | English
 
-# Dialog flow chat bot
+## Dialog flow chat bot
 **only ONE executable file**, you can use it directly, including intent detection, AI management, a visual process editor and a response system.  
 <img src="https://img.shields.io/badge/Latest_version-v1.17.5-blue" /> <img src="https://img.shields.io/badge/MSRV-1.85.0-green" />
 
