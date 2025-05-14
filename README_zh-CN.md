@@ -1,3 +1,8 @@
+# 我们搬家啦!
+
+## 这个项目迁移到了这里: https://github.com/dialogflowai/dialogflow
+
+
 简体中文 | [English](./README.md)
 
 欢迎给本项目，或者给[Github上的项目](https://github.com/dialogflowchatbot/dialogflow) ✨**Star**🎇!
