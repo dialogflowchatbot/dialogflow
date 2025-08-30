@@ -30,7 +30,7 @@ candle-nn = "0.8"
 # candle-nn = { git = "https://github.com/huggingface/candle.git" }
 # candle-onnx = "0.8"
 # candle-transformers = { git = "https://github.com/huggingface/candle.git" }
-candle-transformers = { version = "0.8" }
+candle-transformers = { version = "0.9" }
 # candle-transformers = { version = "0.8", features = ["flash-attn"] }
 # crossbeam-channel = "0.5"
 frand = "0.10"
